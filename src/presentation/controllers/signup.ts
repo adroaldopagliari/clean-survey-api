@@ -1,8 +1,9 @@
+import { HttpRequest, httpResponse } from '../protocols/http';
+
 export default class SignUpController {
-  handle(httpRequest: any): any {
+  handle(httpRequest: HttpRequest): httpResponse {
     if (!httpRequest.body.name) {
       return {
-        request: httpRequest,
         statusCode: 400,
         body: new Error('Missing param: name'),
       };
@@ -10,7 +11,6 @@ export default class SignUpController {
 
     if (!httpRequest.body.email) {
       return {
-        request: httpRequest,
         statusCode: 400,
         body: new Error('Missing param: email'),
       };
