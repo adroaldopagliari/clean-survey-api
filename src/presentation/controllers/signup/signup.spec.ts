@@ -1,8 +1,15 @@
 // eslint-disable-next-line max-classes-per-file
-import { AddAccount, AddAccountModel } from '../../domain/usecases/add-account';
-import { AccountModel } from '../../domain/models/account';
-import { InvalidParamError, MissingParamError, ServerError } from '../errors';
-import { EmailValidator } from '../protocols';
+import {
+  InvalidParamError,
+  MissingParamError,
+  ServerError,
+} from '../../errors';
+import {
+  EmailValidator,
+  AccountModel,
+  AddAccount,
+  AddAccountModel,
+} from './signup-protocols';
 import SignUpController from './signup';
 
 const makeEmailValidator = (): EmailValidator => {
