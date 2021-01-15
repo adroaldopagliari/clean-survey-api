@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import { Encrypter } from '../../protocols/encrypter';
+import { Encrypter } from './db-add-account-protocols';
 import { DbAddAccount } from './db-add-account';
 
 interface SutTypes {
