@@ -1,4 +1,19 @@
+import { MongoClient } from 'mongodb';
+
 describe('Account Mongo Repository', () => {
+  let client: MongoClient;
+
+  beforeAll(async () => {
+    client = await MongoClient.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  });
+
+  afterAll(async () => {
+    await client.close();
+  });
+
   it('Should return an account on success', async () => {
     // const sut = new AccountMongoRepository();
     // const account = await sut.add({
