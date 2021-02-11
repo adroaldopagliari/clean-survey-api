@@ -1,17 +1,12 @@
-import { MongoClient } from 'mongodb';
+import MongoHelper from '../helpers/mongo-helper';
 
 describe('Account Mongo Repository', () => {
-  let client: MongoClient;
-
   beforeAll(async () => {
-    client = await MongoClient.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await MongoHelper.connect(process.env.MONGO_URL);
   });
 
   afterAll(async () => {
-    await client.close();
+    await MongoHelper.disconnect();
   });
 
   it('Should return an account on success', async () => {
