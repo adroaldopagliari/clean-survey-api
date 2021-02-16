@@ -1,4 +1,5 @@
 import MongoHelper from '../helpers/mongo-helper';
+import AccountMongoRepository from './account';
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => {
@@ -10,19 +11,12 @@ describe('Account Mongo Repository', () => {
   });
 
   it('Should return an account on success', async () => {
-    // const sut = new AccountMongoRepository();
-    // const account = await sut.add({
-    //   name: 'any_name',
-    //   email: 'any_email@mail.com',
-    //   password: 'any_password',
-    // });
-
-    const account = {
-      id: 123,
+    const sut = new AccountMongoRepository();
+    const account = await sut.add({
       name: 'any_name',
       email: 'any_email@mail.com',
       password: 'any_password',
-    };
+    });
 
     expect(account).toBeTruthy();
     expect(account.id).toBeTruthy();
